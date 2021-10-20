@@ -1,0 +1,22 @@
+{
+  "name": "backendventas",
+  "version": "1.0.0",
+  "description": "backend de la appweb de ventas",
+  "main": "index.js",
+  "repository": "https://github.com/Developers-React-mintic/BackendVentas.git",
+  "author": "Jeferson <guevarajeferson@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
