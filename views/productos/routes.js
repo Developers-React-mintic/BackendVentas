@@ -1,5 +1,5 @@
 import Express from 'express';
-import { queryAllProductos, crearProducto, editarProducto, eliminarProducto} from '../../controllers/productos/controller.js';
+import { queryAllProductos, crearProducto, editarProducto, eliminarProducto, consultarProducto} from '../../controllers/productos/controller.js';
 const rutasProductos = Express.Router();
 const genericCallBack = (res) => (err, result) => {
     if (err) {
@@ -13,16 +13,20 @@ const genericCallBack = (res) => (err, result) => {
 rutasProductos.route('/productos').get((req, res) => {
     queryAllProductos(genericCallBack(res));
 });
-rutasProductos.route('/productos/nuevo').post((req, res) => {
+rutasProductos.route('/productos').post((req, res) => {
     crearProducto(req.body, genericCallBack(res));
 });
 
-rutasProductos.route('/productos/editar').patch((req, res) => {
-    editarProducto(req.body, genericCallBack(res));
+rutasProductos.route('/productos/:id').get((req, res) => {
+    consultarProducto(req.params.id,genericCallBack(res));
 });
 
-rutasProductos.route('/productos/eliminar').delete((req, res) => {
-    eliminarProducto(req.body.id, genericCallBack(res));
+rutasProductos.route('/productos/:id').patch((req, res) => {
+    editarProducto(req.params.id,req.body , genericCallBack(res));
+});
+
+rutasProductos.route('/productos/:id').delete((req, res) => {
+    eliminarProducto(req.params.id, genericCallBack(res));
 
 
 });
