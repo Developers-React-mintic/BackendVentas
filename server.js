@@ -11,7 +11,7 @@ dotenv.config({
   path: "./.env",
 });
 const app = Express();
-
+const puerto= process.env.PORT || 5000;
 app.use(Express.json());
 app.use(Cors());
 var jwtCheck = jwt({
@@ -31,8 +31,8 @@ app.use(rutasUsuarios);
 app.use(rutasVentas);
 
 const main = () => {
-  return app.listen(process.env.PORT, () => {
-    console.log("escuchando peticiones puerto ", process.env.PORT);
+  return app.listen(puerto, () => {
+    console.log("escuchando peticiones puerto ", puerto);
   });
 };
 conectarBD(main);
