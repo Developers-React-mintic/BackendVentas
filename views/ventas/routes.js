@@ -1,5 +1,5 @@
 import Express from 'express';
-import {queryAllVentas, crearVenta, editarVenta,eliminarVenta, consultarVenta} from '../../controllers/Ventas/controller.js';
+import {queryAllVentas, crearVenta, editarVenta,eliminarVenta, consultarVenta} from '../../controllers/ventas/controller.js';
 const rutasVentas = Express.Router();
 const genericCallBack = (res) => (err, result) => {
     if (err) {
